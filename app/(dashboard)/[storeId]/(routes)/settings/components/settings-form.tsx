@@ -23,6 +23,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "@/components/modals/alert-modal";
+import { ApiALert } from "@/components/ui/api-alert";
 
 interface SettingsFormProps {
     initialData: Store;
@@ -130,6 +131,12 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({ initialData }) => {
                     </Button>
                 </form>
             </Form>
+            <Separator />
+            <ApiALert
+                title="NEXT_PUBLIC_API_URL"
+                description={`${origin}/api/${params.storeId}`}
+                variant="public"
+            />
         </>
     );
 };
