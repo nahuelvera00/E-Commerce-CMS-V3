@@ -23,7 +23,6 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import { AlertModal } from "@/components/modals/alert-modal";
-import { ApiALert } from "@/components/ui/api-alert";
 import ImageUpload from "@/components/ui/image-upload";
 
 interface BillboardFormProps {
@@ -75,6 +74,7 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
                 await axios.post(`/api/${params.storeId}/billboards`, data);
             }
             router.refresh();
+            router.push(`/${params.storeId}/billboards`);
             toast.success(toastMessage);
         } catch (error) {
             toast.error("Something went wrong");
