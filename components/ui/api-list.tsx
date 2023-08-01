@@ -42,7 +42,7 @@ export const ApiList: React.FC<ApiListProps> = ({
             />
             <ApiALert
                 title="DELETE"
-                variant="public"
+                variant="admin"
                 description={`${baseUrl}/${entityName}/{${entityIdName}}`}
             />
         </>
