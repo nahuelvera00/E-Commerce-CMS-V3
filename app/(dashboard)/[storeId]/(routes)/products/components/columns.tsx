@@ -2,6 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import { CellAction } from "./cell-action";
+import { CheckCircle2Icon, XCircleIcon } from "lucide-react";
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
@@ -25,10 +26,29 @@ export const columns: ColumnDef<ProductColumn>[] = [
   {
     accessorKey: "isArchived",
     header: "Archived",
+    cell: ({ row }) => (
+      <div className="flex items-center gap-x-2">
+        {row.original.isArchived ? (
+          <CheckCircle2Icon className="" />
+        ) : (
+          <XCircleIcon />
+        )}
+      </div>
+    ),
   },
+
   {
     accessorKey: "isFeatured",
     header: "Featured",
+    cell: ({ row }) => (
+      <div className="flex items-center gap-x-2">
+        {row.original.isFeatured ? (
+          <CheckCircle2Icon className="" />
+        ) : (
+          <XCircleIcon />
+        )}
+      </div>
+    ),
   },
   {
     accessorKey: "price",
